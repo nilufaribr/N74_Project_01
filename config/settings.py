@@ -8,8 +8,8 @@ env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str('SECRET_KEY')
-DEBUG = env.bool('DEBUG', False)
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+DEBUG = env.bool("DEBUG", default=False)
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
